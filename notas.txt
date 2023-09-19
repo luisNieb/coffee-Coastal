@@ -1,0 +1,46 @@
+npm i  
+npm  run gulp
+
+//dependencias composer
+composer init 
+
+
+Run `npm audit` for details.
+PS C:\cursos\java_html_css_php\AppSalon> composer init
+
+Package name (<vendor>/<name>) [luiss/app-salon]:
+Description []: php 8 ,MVC,SASS   
+Author [luis alberto Alvarez <luisslaycore@gmail.com>, n to skip]: 
+Minimum Stability []: 
+Package Type (e.g. library, project, metapackage, composer-plugin) []: poryect
+License []: 
+
+Would you like to define your dependencies (require) interactively [yes]? no
+Would you like to define your dev dependencies (require-dev) interactively [yes]? no
+Add PSR-4 autoload mapping? Maps namespace "Luiss\AppSalon" to the entered relative path. [src/, n to skip]: n
+
+{
+    "name": "luiss/app-salon",
+    "description": "php 8 ,MVC,SASS",
+    "type": "poryect",
+    "authors": [
+        {
+            "name": "luis alberto Alvarez",
+            "email": "luisslaycore@gmail.com"
+        }
+    ],
+    "require": {}
+}
+
+Do you confirm generation [yes]? yes
+PS C:\cursos\java_html_css_php\AppSalon> 
+
+****en caso de modificar el  composer.json*****
+composer update
+
+****los proyectos de MVC se arrancan desde la carperta de public****
+En la terminal:
+
+cd public 
+ls 
+php -S localhost:3000
