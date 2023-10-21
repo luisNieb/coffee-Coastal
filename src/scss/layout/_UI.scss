@@ -1,0 +1,44 @@
+
+
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+
+.contenedor-app{
+    @include m.tablet { 
+        display: grid;
+       @include m.grid(2,2rem);
+
+        min-height: 100vh;
+    }
+
+    .imagen{
+        height: 20rem;
+        position: relative;
+        background-image: url('../img/log.jpg');
+        background-size: cover;
+        background-position: center center;
+        @include m.tablet { 
+            height: auto;
+
+        }
+
+        &::before{
+            content:'';
+            background-color: v.$negro ;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right:0;
+            bottom: 0;
+            opacity: .1; //que tan opaco se puede ver escala 0-1
+        }
+    }
+
+    .app{
+        width: 95%;
+        margin:0 auto;
+
+    }
+}
+

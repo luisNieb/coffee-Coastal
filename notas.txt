@@ -44,3 +44,4 @@ En la terminal:
 cd public 
 ls 
 php -S localhost:3000
+
