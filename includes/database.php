@@ -1,5 +1,5 @@
 <?php
-
+//base fe datos
 $db = mysqli_connect('localhost', 'root', 'root', '');
 
 
@@ -9,3 +9,4 @@ if (!$db) {
     echo "error de depuración: " . mysqli_connect_error();
     exit;
 }
+
