@@ -45,3 +45,10 @@ cd public
 ls 
 php -S localhost:3000
 
+
+para enviar un email para que confirmen la cuenta 
+
+composer require phpmailer/phpmailer
+
+composer update
+

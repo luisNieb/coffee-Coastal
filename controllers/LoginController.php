@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Model\ActiveRecord;
+use Classes\Email;
 use Model\Usuario;
 use MVC\Router;
 
@@ -38,7 +38,7 @@ class LoginController{
             $alertas=$usuario->validarNuevaCuenta();
            //debuguear($usuario);
 
-           //rebisar que alertas est vacio
+           //rebisar que alertas esta vacio
            if(empty($alertas)){
               //echo 'pasaste la validacion';
               $resultado= $usuario->existeUsuario();
@@ -49,8 +49,12 @@ class LoginController{
                 //no esta registrado
                 //hashear el password
                 $usuario->hashPassword();
-
-                // debuguear($usuario);
+                $usuario->creearToken();
+                
+              //enviar el email 
+               $email= new Email($usuario->email ,$usuario->nombre, $usuario->token);
+               
+               $email->enviarConfirmacion();
               }
      
            }
