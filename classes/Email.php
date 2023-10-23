@@ -28,11 +28,11 @@
         $mail->Host = 'sandbox.smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
-        $mail->Username = '2a5c7a13352985';
-        $mail->Password = '4ce1d93364d';
+        $mail->Username = '930732163a3cf6';
+        $mail->Password = '8d9cc47d4ab4e7';
     
-        $mail->setFrom('cuetas@coastalCoffe.com');//quien manda ek email
-        $mail->addAddress('cuantas@coastalCoffe','coastal@coffee.com');
+        $mail->setFrom('cuentas@coastalCoffe.com');//quien manda el email
+        $mail->addAddress('cuentas@coastalCoffe.com','coastalcoffee.com');
         $mail->Subject ='Comfirma Tu cuenta';
 
         //set html
@@ -41,14 +41,16 @@
 
       
         $contenido="<html>";
-        $contenido.="<p><strong>Hola".$this->nombre."</strong>Has creado tu cuenta en coastal cooffe solo deves confirmarla presionando el siguiente enlace</p>";
+        $contenido.="<p><strong>Hola ".$this->nombre."</strong> Has creado tu cuenta en coastal coffee solo deves confirmarla presionando el siguiente enlace</p>";
         $contenido.="<p>Presiona aqui : 
             <a href='http://localhost:3000/confirmar-cuenta?token=".$this->token."'>Confirma tu cuenta</a> </p>";
         $contenido.="<p>Si tu  no solicitaste esta cuenta ,ignora este mensaje</P>";
         $contenido.="</html>";
 
+        $mail->Body = $contenido;
 
-       // $mail->Body=$contenido;
+
+       // enviar el email
 
         $mail->send();
 

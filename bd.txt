@@ -1,0 +1,30 @@
+create database CoastalCoffee;
+use coastalCofee;
+
+create table Usuarios(
+   id int(11) auto_increment primary key,
+   nombre varchar(60),
+   apellido varchar(60),
+   email varchar(60),
+   telefono varchar(10),
+   admin tinyint(1),
+   confirmado tinyint(1),
+   token varchar(15)
+);
+
+create table servicios(
+    id int(11) auto_increment primary key,
+    nombre varchar(60),
+    precio decimal(5,2)
+);
+
+create table reservacion(
+  id int primary key auto_increment,
+  fecha  date,
+  hora time,
+  usuarioId int (11),
+  constraint fk_usuarioId foreign key (usuarioId)
+  references Usuarios(id)
+);
+
+

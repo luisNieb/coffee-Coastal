@@ -123,6 +123,14 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
+      // Busca un registro de manera dinamica por nobre de coluna y valor
+      public static function where($columna , $valor) {
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor} ' ";
+        $resultado = self::consultarSQL($query);
+        return array_shift( $resultado ) ;
+    }
+
+
     // crea un nuevo registro
     public function crear() {
         // Sanitizar los datos
@@ -135,6 +143,7 @@ class ActiveRecord {
         $query .= join("', '", array_values($atributos));
         $query .= " ') ";
 
+        
         // Resultado de la consulta
         $resultado = self::$db->query($query);
         return [

@@ -34,6 +34,7 @@ include_once __DIR__."/../templates/alertas.php";
         <input 
             maxlength="10"
             type="tel" 
+            pattern="[0-9]*"
             id="telefono" 
             name="telefono" 
             placeholder="tu telefono"
