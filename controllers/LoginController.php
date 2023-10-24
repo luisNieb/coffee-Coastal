@@ -67,9 +67,27 @@ class LoginController{
                $alertas=$auth->ValidarEmail();
 
                if (empty($alertas)){
+                $usuario=Usuario::where('email',$auth->email);
                 
-               }
 
+                 if($usuario && $usuario->confirmado ==='1'){
+                    //generar un token
+                    $usuario->creearToken();
+                    $usuario->guardar();
+
+                  // TODO: enviar el email
+                  $email= new Email($usuario->email,$usuario->nombre,$usuario->token) ;
+                  $email->enviarInstrucciones() ;
+
+                  // Alerta de exito
+                  Usuario::setAlerta('exito','Revisa Tu email');
+                    
+                 }else{
+                    Usuario::setAlerta('error','El usuario no existe o no esta confirmado');
+                    $alertas=Usuario::getAlertas();
+                 }
+                  
+               }
 
             }
 
@@ -78,7 +96,13 @@ class LoginController{
             ]);
     }
 
-    public static function recuperar(){
+    public static function recuperar(Router $router){
+         $alertas=[];
+
+        $router->render('auth/recuperar',[
+          'alertas' => $alertas
+        ]);
+
         echo "Recuperar cuenta";
     }
 

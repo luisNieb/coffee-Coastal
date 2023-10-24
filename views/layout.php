@@ -17,9 +17,6 @@
             <?php echo $contenido; ?>
         </div>
         
-
-
-
     </div>
 
             
