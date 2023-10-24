@@ -2,6 +2,9 @@
 <h1 class="nombre-pagina">Login<span></span></h1>
 <p class="text-center" >Inicia sesion con tus datos</p>
 
+
+<?php  include_once __DIR__.'/../templates/alertas.php'; ?>
+
 <form class="formulario" method="POST"  action="/">
     <div class="campo">
         <label for="email">Email</label>
@@ -16,10 +19,10 @@
         <input type="password" 
                     id="password" 
                     placeholder="tu password" 
-                    name="pasword"
+                    name="password"
         />
     </div>
-         <input type="submit" class="boton" valu="Iniciar sesion"/>
+         <input type="submit" class="boton" value="Iniciar sesion"/>
 </form>
  
 <div class="acciones">

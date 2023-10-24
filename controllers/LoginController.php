@@ -9,7 +9,50 @@ use MVC\Router;
 
 class LoginController{
     public static function login(Router $router){
-         $router->render('auth/login');
+       $alertas=[];
+
+             if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+                 $auth=new Usuario($_POST);
+                 $alertas= $auth->validarLogin();
+                 //debuguear($auth);
+                 
+                 //si las alertas estan vacias
+                 if(empty($alertas)){
+                    //comprobar que existe el usuario
+                    $usuario=Usuario::where('email',$auth->email);
+                   
+                    if($usuario){
+                      //verificar que el usuario este verificado
+                       if($usuario->estaVerificado($auth->password)){
+                          
+                          session_start();
+                          $_SESSION['id']=$usuario->id;
+                          $_SESSION['nombre']=$usuario->nombre." ". $usuario->apellidos;
+                          $_SESSION['email']=$usuario->email;
+                          $_SERVER['login']=true;
+                          //redireccinamiento
+                          if($usuario->admin==="1"){
+                              $_SESSION['admin']=$usuario->admin ?? null;
+                              header("Location:/admin");
+                          }else{
+                              header("Location:/principal");
+
+                          }
+                       }
+
+                    }else{
+                      Usuario::setAlerta('error', 'Usuario no valido');
+                    }
+                 }
+
+             }
+             $alertas=Usuario::getAlertas();
+
+
+         $router->render('auth/login',[
+              'alertas' => $alertas   //pasamos las alertas a la vista
+         ]);
     }
 
     public static function logout(){
@@ -17,8 +60,21 @@ class LoginController{
     }
 
     public static function olvide(Router $router){
-            $router->render('auth/olvide-password',[
 
+            $alertas=[];
+            if($_SERVER['REQUEST_METHOD']==='POST'){
+               $auth=new Usuario($_POST);
+               $alertas=$auth->ValidarEmail();
+
+               if (empty($alertas)){
+                
+               }
+
+
+            }
+
+            $router->render('auth/olvide-password',[
+                 'alertas' => $alertas
             ]);
     }
 
@@ -61,9 +117,7 @@ class LoginController{
                  header('location: /mensaje');
                 
                }
-
-
-               debuguear($usuario);
+               
               }
      
            }

@@ -1,7 +1,7 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', 'root', '');
-
+$db = mysqli_connect('localhost', 'luisS', '123456789', 'coastalCoffee');
+//$db = mysqli_connect('localhost', 'root', 'root', 'coastalCoffee');
 
 if (!$db) {
     echo "Error: No se pudo conectar a MySQL.";
