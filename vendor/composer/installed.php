@@ -3,7 +3,7 @@
         'name' => 'luiss/app-salon',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd503530d5848436eceb58fa7229d0e92b0231ac5',
+        'reference' => '0c44aabc4d87b5bcce90c94ffb693a18d11cc1b0',
         'type' => 'poryect',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'luiss/app-salon' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd503530d5848436eceb58fa7229d0e92b0231ac5',
+            'reference' => '0c44aabc4d87b5bcce90c94ffb693a18d11cc1b0',
             'type' => 'poryect',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

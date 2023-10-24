@@ -48,6 +48,9 @@ php -S localhost:3000
 
 para enviar un email para que confirmen la cuenta 
 
+installar composer en la pagina oficial
+
+
 composer require phpmailer/phpmailer
 
 composer update
