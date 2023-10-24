@@ -10,18 +10,18 @@ use MVC\Router;
 class LoginController{
     public static function login(Router $router){
        $alertas=[];
-
+       $home=false;
              if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                  $auth=new Usuario($_POST);
                  $alertas= $auth->validarLogin();
-                 //debuguear($auth);
-                 
+                
+                 //debuguear($alertas);
                  //si las alertas estan vacias
                  if(empty($alertas)){
                     //comprobar que existe el usuario
                     $usuario=Usuario::where('email',$auth->email);
-                   
+                  
                     if($usuario){
                       //verificar que el usuario este verificado
                        if($usuario->estaVerificado($auth->password)){
@@ -36,7 +36,7 @@ class LoginController{
                               $_SESSION['admin']=$usuario->admin ?? null;
                               header("Location:/admin");
                           }else{
-                              header("Location:/principal");
+                              header("Location:/home");
 
                           }
                        }
@@ -51,7 +51,7 @@ class LoginController{
 
 
          $router->render('auth/login',[
-              'alertas' => $alertas   //pasamos las alertas a la vista
+              'alertas' => $alertas, "home" => $home   //pasamos las alertas a la vista
          ]);
     }
 
@@ -60,7 +60,7 @@ class LoginController{
     }
 
     public static function olvide(Router $router){
-
+      $home=false;
             $alertas=[];
             if($_SERVER['REQUEST_METHOD']==='POST'){
                $auth=new Usuario($_POST);
@@ -92,18 +92,20 @@ class LoginController{
             }
 
             $router->render('auth/olvide-password',[
-                 'alertas' => $alertas
+                 'alertas' => $alertas,
+                 "home" => $home
             ]);
     }
 
     public static function recuperar(Router $router){
+        $home=false;
          $alertas=[];
          $error=false;
          $token=s($_GET['token']);
          $usuario=Usuario::where('token',$token);
 
          if(empty($usuario)){
-             Usuario::setAlerta("error","Token no valido");
+             Usuario::setAlerta('error', 'token no valido');
              $error=true;
          }
          
@@ -124,15 +126,14 @@ class LoginController{
                   header('location: /');
                  }
   
-             }
-
-            
+             }    
          }
 
-
+        $alertas=Usuario::getAlertas();
         $router->render('auth/recuperar',[
           'alertas' => $alertas,
-          'error' => $error
+          'error' => $error,
+          "home" => $home
         ]);
 
 
@@ -140,7 +141,7 @@ class LoginController{
     }
 
     public static function crear(Router $router){
-
+      $home=false;
         $usuario=new Usuario;
         $alertas=[];//arrglo de alertas
 
@@ -183,16 +184,19 @@ class LoginController{
          $router->render('auth/crear-cuenta', [
             //pasamos la referecia del usuario  a la vista
             "usuario"=>$usuario,
-            'alertas'=>$alertas
+            'alertas'=>$alertas,
+            "home" => $home
          ]);
     }
 
     public static function mensaje(Router $router){
-        $router->render('auth/mensaje');
+      $home=false;
+        $router->render('auth/mensaje',[ "home" => $home]);
     }
 
     public static function confirmar(Router $router){ 
       $alertas=[];
+      $home=false;
        
       //obtener el token de la url sanitizarlo para evitar inyeccione de codigo
       $token=s($_GET["token"]);
@@ -217,9 +221,10 @@ class LoginController{
 
       //renderizar la vista
       $router->render('auth/confirmar-cuenta',[
-        'alertas'=>$alertas
+        'alertas'=>$alertas,
+        "home" => $home
       ]);
   }
-
+  
 
 }

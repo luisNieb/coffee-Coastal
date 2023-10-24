@@ -125,7 +125,8 @@ class ActiveRecord {
 
       // Busca un registro de manera dinamica por nobre de coluna y valor
       public static function where($columna , $valor) {
-        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor}' ";
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor}'";
+       // debuguear($query);
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }

@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="build/css/app.css">
 </head>
 <body>
+
+   <?php 
+    //no carga las vistas de formulario
+    if(!$home):; 
+     ?>
     <div class="contenedor-app" >
         <div class="imagen">
 
@@ -18,7 +23,16 @@
         </div>
         
     </div>
+    <?php endif;  ?>
+    
+    <?php 
+    //carga las vistas de home
+    if($home):;  ?>
 
+    <?php echo $contenido; ?>
+
+    
+    <?php endif;  ?>
             
 </body>
 </html>
