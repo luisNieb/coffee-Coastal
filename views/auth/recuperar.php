@@ -3,6 +3,10 @@
 
 <?php  include_once __DIR__.'/../templates/alertas.php'; ?>
 
+<?php 
+//no carga el formulario en caso de error
+if($error) return; 
+?>
 
 <form class="formulario" method="POST">
 <div class="campo">
