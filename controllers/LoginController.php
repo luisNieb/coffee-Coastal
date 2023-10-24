@@ -8,6 +8,7 @@ use MVC\Router;
 
 
 class LoginController{
+  //funcion para validar nuevo usuario
     public static function login(Router $router){
        $alertas=[];
        $home=false;
