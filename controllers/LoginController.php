@@ -92,6 +92,7 @@ class LoginController{
       if(empty($usuario)){
         //mostrar mensje de errorr
         Usuario::setAlerta('error',"token no valido");
+      
 
       }else{
          //modificar a asuario confirmado
