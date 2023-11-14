@@ -1,0 +1,156 @@
+.fondo {
+    background-image: url('/build/img/fondo.jpg');
+    //background-color: black;
+    background-size: contain; /* Ajusta la imagen al tamaño de la ventana del navegador */
+    
+}
+
+#fondo{
+    background-color: #20202096 !important;
+ 
+}
+
+.navbar {
+    justify-content: flex-end;
+ 
+
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    
+}
+.navbar-brand img {
+    width: 30px; 
+    margin-right: 100px; /* Espacio entre el ícono y el texto */
+    
+}
+
+.img{
+    border: 1px solid #ccc;
+}
+/* FOOTER */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #693d28;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #693d28;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+.footer__color p{
+    color:#fff;;
+}
+
+
+.footer-images {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.footer-images img {
+    margin: 0 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.contact-info {
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+
+/* animaciones */
+@keyframes Desliza_abajo {
+0%, 100% {
+        transform: scale(1.5);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.custom-animation {
+    animation:Desliza_abajo 1.8s ease-in-out infinite; /* Duración de 2 segundos, rebote lento y animación infinita */
+}
+
+.container-fluid {
+    margin-top: 25px; /* Espacio para visualizar la animación */
+    margin-block-end: 25px;
+}
+
+ /* Estilos CSS para el contenedor de información */
+ .about-us-container {
+    background-color: #D2B48C; /* Color café claro */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Estilos CSS para el título */
+.about-us-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilos CSS para la descripción */
+.about-us-description {
+    font-size: 16px;
+    text-align: justify;
+    margin: 20px 0;
+}
+
+/* Estilos CSS para el botón */
+.learn-more-button {
+    background-color: #323235;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Estilos para seccion de mapas */
+.contact-container {
+    background-color: #D2B48C; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 800px; 
+    margin: 0 auto;
+    text-align: center; 
+}
+.contact-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.contact-address {
+    font-size: 16px;
+    margin: 20px 0;
+}
+.contact-image {
+    max-width: 100%;
+    height: auto;
+}

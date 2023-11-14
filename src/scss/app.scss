@@ -1,5 +1,8 @@
 @use 'base';
-@use "layout";
-@use "componentes";
+@use 'verificacion';
 @use "header";
 @use "footer";
+@use "layout";
+@use "componentes";
+@use "internas";
+

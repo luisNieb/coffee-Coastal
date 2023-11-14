@@ -1,6 +1,6 @@
 <?php
 
-$db = mysqli_connect('localhost', 'root', 'root', 'appSalon');
+$db = mysqli_connect('localhost', 'root', 'root', 'coastalCoffee');
 
 
 if (!$db) {

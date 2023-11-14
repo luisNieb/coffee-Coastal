@@ -1,0 +1,31 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+
+.verificacion{
+
+    &__texto{
+        p{
+            text-align: center;
+            font-family: v.$fuente_principal;
+            font-weight: 700;
+            font-size: 3rem;
+        }
+    }
+
+    &__imagen{
+      
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+        img{
+            margin: auto;
+            border-radius: 60%;
+            max-width: 50rem;
+          
+        }
+        
+
+    }
+}

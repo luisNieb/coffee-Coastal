@@ -38,6 +38,13 @@
     .app{
         width: 95%;
         margin:0 auto;
+        p{
+            margin-bottom: 4rem;
+            font-family: v.$fuente_principal;
+            font-weight: 600;
+            color: v.$secundario;
+        }
+        
 
     }
 }

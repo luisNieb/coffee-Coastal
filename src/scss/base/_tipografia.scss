@@ -4,7 +4,7 @@ h1, h2, h3 {
     font-family: v.$fuente_principal;
     margin: 0 0 calc(v.$separacion / 2) 0 ;
     font-weight: 900;
-    color: v.$blanco;
+    color: v.$primario;
     text-align: center;
 }
 
@@ -19,7 +19,7 @@ h3 {
     text-align: center;
 }
 p {
-    color: v.$blanco;
+    color: v.$primario;
     font-size: 2rem;
 }
 
@@ -49,3 +49,31 @@ h1{font-size: 4.6rem;
         
        }  
      }
+
+ .heading-blanco {
+      
+        color: v.$blanco;
+    
+        span {
+            color: v.$blanco;
+        }
+        &::after {
+            display: none;
+        }
+    }
+    
+    h3 {
+        font-size: 3.2rem;
+    }
+
+    .heading-blanco {
+        @extend h2;
+        color: v.$blanco;
+    
+        span {
+            color: v.$blanco;
+        }
+        &::after {
+            display: none;
+        }
+    }

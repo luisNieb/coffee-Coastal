@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\LoginController;
 use Controllers\HomeController;
+use Controllers\APIController;
 use MVC\Router;
 
 $router = new Router();
@@ -32,6 +33,12 @@ $router->get('/mensaje',[LoginController::class,'mensaje']);
 //area privada se devio iniciar secion para llegar a esta seccion
 
 $router->get('/home',[HomeController::class,'index']);
+$router->get('/menu',[HomeController::class,'menu']);
+$router->get('/cita',[HomeController::class,'cita']);
+
+
+//API de reservaiones
+$router->get('/api/servicio',[APIController::class,'index']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

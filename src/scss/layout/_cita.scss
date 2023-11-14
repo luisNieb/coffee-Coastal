@@ -1,0 +1,17 @@
+@use "base/variables" as v;
+.seccion{
+    display: none;
+    h2{
+        font-family: v.$fuente_principal ;
+        font-size: 2.5rem ;
+        font-weight: 700;
+        padding-top: 5rem;
+    }
+  
+}
+.mostrar{
+    display: block;
+}
+.ocultar{
+    display: none;
+}
